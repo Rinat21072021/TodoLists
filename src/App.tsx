@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Todolist} from "./componets/Todolist";
-
+import {tasksType, Todolist} from "./componets/Todolist";
 
 
 
 function App() {
-    let [tasks, setTasks] = useState([
+    let [tasks, setTasks] = useState<Array<tasksType>>([
         {id:1, title:"HTML&CSS", isDone:true},
         {id:2, title:"JS", isDone:true},
         {id:3, title:"React", isDone:false},
@@ -17,8 +16,7 @@ function App() {
 
 
     function removeTask(id:number){
-       tasks=tasks.filter(t=>t.id !==id)
-        setTasks(tasks)
+       setTasks(tasks.filter(t=>t.id !==id))
     }
 
     return (
